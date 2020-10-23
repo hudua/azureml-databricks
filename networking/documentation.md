@@ -36,7 +36,7 @@ You can create a datastore as normal:
 ![adbaad](/networking/images/mi.PNG)
 * The managed identity that is created for Azure ML is called the same as the workspace. You should give it "Storage Blob Data Reader" role assignment for the storage account.
 
-#### Creating a dataset
+#### Creating a dataset and running compute
 Once the datastore is created per above, you should be able to create dataset and run compute (e.g. Notebook VM, AutoML, Designer) as normal.
 
 
