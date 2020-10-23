@@ -34,7 +34,7 @@ With the right storage account, you can allow access from select network, under 
 You can create a datastore as normal: 
 * Be sure to select Yes for using workspace managed identity for data preview and profiling.
 ![adbaad](/networking/images/mi.PNG)
-* The managed identity that is created for Azure ML is called the same as the workspace. You should give it "Storage Blob Data Reader" role assignment for the storage account.
+* The managed identity that is created for Azure ML is called the same as the workspace. Depending on permissions, you might need to give it something like "Storage Blob Data Reader" role assignment for the storage account.
 
 #### Creating a dataset and running compute
 Once the datastore is created per above, you should be able to create dataset and run compute (e.g. Notebook VM, AutoML, Designer) as normal.
