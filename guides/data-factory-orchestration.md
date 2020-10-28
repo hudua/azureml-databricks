@@ -36,6 +36,7 @@ Third, create a trigger that is monitoring storage:
 * Select new trigger
 * Mark the trigger based on event
 * Fill in the necessary information on the storage account, container, and blob file name pattern
+* You might need to register Event.Grid resource provider in the subscription
 
 #### Publishing
 
