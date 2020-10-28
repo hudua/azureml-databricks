@@ -18,7 +18,7 @@ First, create an Azure Databricks linked service in Azure Data Factory:
 * Create a new linked service: Manage --> Linked services --> New --> Compute --> Databricks
 ![alt text](/guides/images/1.PNG)
 
-* You can select the relevant Databricks service and get the token here. Selet existing interactive cluster for now. Once you enter the access token, you should be able to select cluster ID.
+* You can select the relevant Databricks service and get the token from Databricks user settings. Select existing interactive cluster for now. Once you enter the access token, you should be able to select cluster ID.
 ![alt text](/guides/images/2.PNG)
 ![alt text](/guides/images/3.PNG)
 
