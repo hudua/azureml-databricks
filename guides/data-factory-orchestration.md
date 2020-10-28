@@ -15,8 +15,13 @@ Once you have a notebook, e.g. with parameterization, ready to go, you can go to
 
 First, create an Azure Databricks linked service in Azure Data Factory:
 
-* Create a new linked service
-* You can select the relevant Databricks service and get the token here
+* Create a new linked service: Manage --> Linked services --> New --> Compute --> Databricks
+![alt text][guides/images/1.PNG]
+
+* You can select the relevant Databricks service and get the token here. Selet existing interactive cluster for now. Once you enter the access token, you should be able to select cluster ID.
+![alt text][guides/images/2.PNG]
+![alt text][guides/images/3.PNG]
+
 * Test the connection and then save
 
 #### Azure Data Factory pipeline of Databricks notebook
