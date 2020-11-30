@@ -36,6 +36,12 @@ pip install azureml-sdk
 databricks-connect configure
 ```
 
-On the configuration side, you will need to enter the following:
+On the databricks-connect configuration side, you will need to enter the following:
 
-1) 
+1) Host: https://adb-5555555555555555.19.azuredatabricks.net/
+2) Token: From Databricks Workspace User Settings
+3) Cluster ID: from Databricks Workspace Cluster --> Advanced Settings --> Tags (Enter it manually)
+4) Org ID: the part in URL after .net/?o= https://adb-5555555555555555.19.azuredatabricks.net/?o=123...
+5) Keep port
+
+
