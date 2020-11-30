@@ -15,8 +15,6 @@ For this guide, Databricks runtime 7.1 is used and thus Databricks Connect versi
 * Execute the following code in terminal, while clicking through to continue as needed. It installs Python 3.7 and sets up a new kernel for Azure ML Notebook.
 
 ```console
-sudo apt install virtualenv
-
 apt update
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
@@ -24,13 +22,13 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt install python3.7
 
-virtualenv -p python3.7 py_37_env
-source py_37_env/bin/activate
-pip install ipykernel
-python -m ipykernel install --user --name=py_37_env
+sudo apt-get install python3-pip
 
-pip uninstall pyspark
-pip install -U databricks-connect==7.1.*
+python3.7 -m pip install ipykernel
+python3.7 -m ipykernel install --user
+
+python3.7 -m pip uninstall pyspark
+python3.7 -m pip install -U databricks-connect==7.1.*
 
 databricks-connect configure
 ```
