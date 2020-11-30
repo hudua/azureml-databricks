@@ -26,8 +26,10 @@ print(a)
 ![alt text](/guides/images/amladb4.PNG)
 ![alt text](/guides/images/amladb5.PNG)
 
-* Then in your user root directory, create a new notebook and bring in this set of code
+* Then in your user root directory, create a new notebook and bring in this set of code. This should run. Recall that the user directory should be:
 
+notebook.ipynb
+example/<python-file-name>.py
 
 
 ```python
