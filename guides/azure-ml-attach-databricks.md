@@ -28,10 +28,10 @@ print(a)
 
 * Then in your user root directory, create a new notebook and bring in this set of code. This should run, as validated with Azure ML SDK version 1.18.0 per code below. Recall that the user directory should be per code below:
 
-- notebook.ipynb
-
-- example/test.py
-
+```python
+notebook.ipynb
+example/test.py
+```
 
 ```python
 import os
