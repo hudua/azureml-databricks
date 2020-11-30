@@ -2,11 +2,11 @@ This guide provides step-by-step instructions on attaching Azure Databricks as r
 
 Reference is here: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-use-databricks-as-compute-target.ipynb (Section 3: Running a Python script in Databricks that currenlty is in local computer)
 
-* Go to Compute --> Attached compute --> New -- Azure Databricks
+* Go to Compute --> Attached compute --> New --> Azure Databricks
 
 ![alt text](/guides/images/amladb1.PNG)
 
-* Provide a compute name and select the Databricks workspace. Enter the Databricks access token, from Databricks workspace, under User Settings
+* Provide a compute name and select the Databricks workspace. Enter the Databricks access token from Databricks workspace's User Settings page
 
 ![alt text](/guides/images/amladb2.PNG)
 
