@@ -47,7 +47,9 @@ You can run a test to verify
 databricks-connect test
 ```
 
-* Reset your computer instance
+* Create a new notebook with Azure ML and select the Python 3 kernel. It should now display Python 3.7.9
+
+![alt text](/guides/images/adbc2.PNG)
 
 * Your Databricks Connect should be set up now! Try a few lines of code as below
 
