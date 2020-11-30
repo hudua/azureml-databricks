@@ -71,3 +71,7 @@ pipeline_run = Experiment(workspace, 'DB_Python_Local_demoFriday2').submit(pipel
 pipeline_run.wait_for_completion()
 
 ```
+
+* You can see the logs under Outputs + logs once you click on the Pipeline run link.
+
+![alt text](/guides/images/amladb6.PNG)
