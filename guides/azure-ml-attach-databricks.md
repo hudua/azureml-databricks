@@ -26,3 +26,45 @@ print(a)
 ![alt text](/guides/images/amladb4.PNG)
 ![alt text](/guides/images/amladb5.PNG)
 
+* Then in your user root directory, create a new notebook and bring in this set of code
+
+
+
+```python
+import os
+import azureml.core
+from azureml.core.compute import DatabricksCompute
+from azureml.core import Workspace, Experiment
+from azureml.pipeline.core import Pipeline
+from azureml.pipeline.steps import DatabricksStep
+
+# Check core SDK version number
+print("SDK version:", azureml.core.VERSION)
+
+subscription_id = '<sub>'
+resource_group = '<rg>'
+workspace_name = '<ws>'
+
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+databricks_compute = DatabricksCompute(workspace=workspace, name='<name of Databricks compute you gave>')
+
+python_script_name = "test.py"
+source_directory = "./example"
+
+dbPythonInLocalMachineStep = DatabricksStep(
+    name="DBPythonInLocalMachine",
+    existing_cluster_id = '<Databricks-cluster-id>',
+    python_script_name=python_script_name,
+    source_directory=source_directory,
+    run_name='DB_Python_Local_demo',
+    compute_target=databricks_compute,
+    allow_reuse=True
+)
+
+steps = [dbPythonInLocalMachineStep]
+pipeline = Pipeline(workspace=workspace, steps=steps)
+pipeline_run = Experiment(workspace, 'DB_Python_Local_demoFriday2').submit(pipeline)
+pipeline_run.wait_for_completion()
+
+```
