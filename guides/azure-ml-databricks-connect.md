@@ -44,4 +44,10 @@ On the databricks-connect configuration side, you will need to enter the followi
 4) Org ID: the part in URL after .net/?o= https://adb-5555555555555555.19.azuredatabricks.net/?o=123...
 5) Keep port
 
+You can run a test to verify
 
+```console
+databricks-connect test
+```
+
+* 
