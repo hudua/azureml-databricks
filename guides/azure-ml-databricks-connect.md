@@ -31,7 +31,6 @@ python -m ipykernel install --user --name=py_37_env
 
 pip uninstall pyspark
 pip install -U databricks-connect==7.1.*
-pip install azureml-sdk
 
 databricks-connect configure
 ```
@@ -50,4 +49,15 @@ You can run a test to verify
 databricks-connect test
 ```
 
-* 
+* Reset your computer instance
+
+* Your Databricks Connect should be set up now! Try a few lines of code as below
+
+```python
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate()
+
+df = spark.sql('select * from test')
+
+df.show(5)
+```
