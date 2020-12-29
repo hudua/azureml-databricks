@@ -4,7 +4,7 @@ Reference for Databricks Connect is here: https://docs.microsoft.com/en-us/azure
 
 Note that the runtime version of Databricks should match up with the Databricks Connect version. As well, Databricks runtime uses Python 3.7 so that should be used for Azure ML notebook as well.
 
-For this guide, Databricks runtime 7.3 is used and thus Databricks Connect version 7.3.* is used.
+For this guide, Databricks runtime 7.3 is used and thus Databricks Connect version 7.3.5 is used.
 
 * You will need a compute instance in Azure ML as well. If you haven't already done so, you can create one under Compute --> Compute instances. See for more details: https://github.com/hudua/azureml-databricks/blob/main/guides/1_azureml_guide_data_designer.pdf
 
