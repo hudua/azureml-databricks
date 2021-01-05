@@ -17,6 +17,8 @@ Then finally, in the activity settings, enter @pipeline().parameters.filename as
 
 This set of code should work, tested for runtime 7.3 LTS. You will need a service principal that has data factory contributor access (ideally) to ADF service.
 
+
+```python
 dbutils.library.installPyPI("azure-mgmt-resource")
 dbutils.library.installPyPI("azure-mgmt-datafactory")
 dbutils.library.installPyPI("azure-identity")
@@ -31,3 +33,4 @@ from azure.mgmt.datafactory import DataFactoryManagementClient
 adf_client = DataFactoryManagementClient(credentials, "<subscription id>")
 
 run_response = adf_client.pipelines.create_run("<resource group>", "<adf-name>", "<pipeline-name>", parameters={'query': 'select top 5 stop_no from anomalies', 'filename': 'anomalies2.csv'})
+```
