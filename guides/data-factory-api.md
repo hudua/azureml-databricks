@@ -6,19 +6,19 @@ This guide provides instruction on how to use the Data Factory API Python librar
 #### Pipeline activity
 
 Assuming there is a created pipeline that copies from source to sink (being storage account), set up two parameters here, one being the custom query and the other being the output file name:
-
-In the source, set up custom query and use this as the query value: @pipeline().parameters.query
 ![alt text](/guides/images/adf_1.PNG)
-
-In the sink setting, open the sink dataset, set up a parameter called name and you can optionally give it a default value
+In the source, set up custom query and use this as the query value: @pipeline().parameters.query
 ![alt text](/guides/images/adf_2.PNG)
 
-Continuing in the sink dataset, under Connection setting, select the container and input @dataset().name as the file name. Then, uncheck binary (if checked) and click column names in the first row.
+In the sink setting, open the sink dataset, set up a parameter called name and you can optionally give it a default value
 ![alt text](/guides/images/adf_3.PNG)
+
+Continuing in the sink dataset, under Connection setting, select the container and input @dataset().name as the file name. Then, uncheck binary (if checked) and click column names in the first row.
 ![alt text](/guides/images/adf_4.PNG)
+![alt text](/guides/images/adf_5.PNG)
 
 Then finally, in the activity settings, enter @pipeline().parameters.filename as the now avaiable sink parameter.
-![alt text](/guides/images/adf_5.PNG)
+![alt text](/guides/images/adf_6.PNG)
 
 #### Databricks to run script to automate
 
