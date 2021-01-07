@@ -7,6 +7,7 @@ This guide provides instruction on how to use the Data Factory API Python librar
 
 Assuming there is a created pipeline that copies from source to sink (being storage account), set up two parameters here, one being the custom query and the other being the output file name. You can get to the pipeline parameter settings by clicking outside of the activity box.
 ![alt text](/guides/images/adf_0.PNG)
+Add new parameters:
 ![alt text](/guides/images/adf_1.PNG)
 
 In the source, set up custom query and use this as the query value: @pipeline().parameters.query
