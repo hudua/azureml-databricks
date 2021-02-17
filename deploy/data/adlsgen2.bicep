@@ -21,6 +21,7 @@ resource datalake 'Microsoft.Storage/storageAccounts@2019-06-01' = {
       defaultAction: 'Deny'
       bypass: 'Logging,Metrics'
     }
+    isHnsEnabled: true
   }
 }
 
@@ -37,7 +38,8 @@ resource datalake_pe 'Microsoft.Network/privateEndpoints@2020-06-01' = {
         properties: {
           privateLinkServiceId: datalake.id
           groupIds: [
-            'blob'
+            'blob',
+            'dbf'
           ]
         }
       }
@@ -50,7 +52,7 @@ resource datalake_pe_dns_reg 'Microsoft.Network/privateEndpoints/privateDnsZoneG
   properties: {
     privateDnsZoneConfigs: [
       {
-        name: 'privatelink_blob_core_windows_net'
+        name: 'privatelink_blob_dbf_core_windows_net'
         properties: {
           privateDnsZoneId: privateZoneId
         }

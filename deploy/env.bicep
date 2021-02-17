@@ -34,7 +34,7 @@ module databricks './compute/databricks.bicep' = {
   params: {
     name: 'databricks'
     vnetId: vnet.outputs.vnetId
-    pricingTier: 'standard'
+    pricingTier: 'premium'
     managedResourceGroupId: '${subscription().id}/resourceGroups/${databricksManagedResourceGroupName}'
     publicSubnetName: vnet.outputs.databricksPublicSubnetName
     privateSubnetName: vnet.outputs.databricksPrivateSubnetName
