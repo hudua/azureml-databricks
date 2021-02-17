@@ -9,9 +9,6 @@ resource natGatewayPublicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
   properties: {
     publicIPAllocationMethod: 'Static'
   }
-  zones: [
-    '1'
-  ]
 }
 
 resource natGateway 'Microsoft.Network/natGateways@2020-06-01' = {
@@ -27,9 +24,6 @@ resource natGateway 'Microsoft.Network/natGateways@2020-06-01' = {
       }
     ]
   }
-  zones:[
-    '1'
-  ]
 }
 
 output natGatewayId string = natGateway.id
