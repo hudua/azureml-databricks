@@ -21,7 +21,6 @@ resource datalake 'Microsoft.Storage/storageAccounts@2019-06-01' = {
       defaultAction: 'Deny'
       bypass: 'Logging,Metrics'
     }
-    isHnsEnabled: true
   }
 }
 
