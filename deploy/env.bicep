@@ -3,8 +3,6 @@ param windowsVMPassword string {
   secure: true
 }
 
-param databricksManagedResourceGroupName string
-
 module vnet './networking/vnet.bicep' = {
   name: 'vnet'
   params: {
@@ -35,7 +33,7 @@ module databricks './compute/databricks.bicep' = {
     name: 'databricks'
     vnetId: vnet.outputs.vnetId
     pricingTier: 'standard'
-    managedResourceGroupId: '${subscription().id}/resourceGroups/${databricksManagedResourceGroupName}'
+    managedResourceGroupId: '${subscription().id}/resourceGroups/databricks-rg-${resourceGroup().name}-${uniqueString(resourceGroup().id)}'
     publicSubnetName: vnet.outputs.databricksPublicSubnetName
     privateSubnetName: vnet.outputs.databricksPrivateSubnetName
   }
