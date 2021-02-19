@@ -17,6 +17,7 @@ resource datalake 'Microsoft.Storage/storageAccounts@2019-06-01' = {
     isHnsEnabled: true
     minimumTlsVersion: 'TLS1_2'
     supportsHttpsTrafficOnly: true
+    allowBlobPublicAccess: false
     networkAcls: {
       defaultAction: 'Deny'
       bypass: 'Logging,Metrics'
