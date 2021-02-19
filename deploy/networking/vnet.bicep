@@ -22,13 +22,6 @@ module nsgDatabricks 'nsg/nsg-databricks.bicep' = {
   }
 }
 
-module natGateway 'natGateway.bicep' = {
-  name: 'natGateway'
-  params: {
-    name: 'natGateway'
-  }
-}
-
 module privatezone_datalake 'privatezone.bicep' = {
   name: 'datalake_private_zone'
   scope: resourceGroup()
@@ -71,9 +64,6 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
           networkSecurityGroup: {
             id: nsgDatabricks.outputs.publicNsgId
           }
-          natGateway: {
-            id: natGateway.outputs.natGatewayId
-          }
           delegations: [
             {
               name: 'databricks-delegation-public'
@@ -90,9 +80,6 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
           addressPrefix: '10.0.4.0/24'
           networkSecurityGroup: {
             id: nsgDatabricks.outputs.privateNsgId
-          }
-          natGateway: {
-            id: natGateway.outputs.natGatewayId
           }
           delegations: [
             {
