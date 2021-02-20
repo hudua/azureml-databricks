@@ -10,6 +10,13 @@ module vnet './networking/vnet.bicep' = {
   }
 }
 
+module egressLb './networking/egressLb.bicep' = {
+  name: 'egressLb'
+  params: {
+    name: 'egressLb'
+  }
+}
+
 module bastion './networking/bastion.bicep' = {
   name: 'bastion'
   params: {
@@ -36,6 +43,8 @@ module databricks './compute/databricks.bicep' = {
     managedResourceGroupId: '${subscription().id}/resourceGroups/databricks-rg-${resourceGroup().name}-${uniqueString(resourceGroup().id)}'
     publicSubnetName: vnet.outputs.databricksPublicSubnetName
     privateSubnetName: vnet.outputs.databricksPrivateSubnetName
+    loadbalancerId: egressLb.outputs.lbId
+    loadBalancerBackendPoolName: egressLb.outputs.lbBackendPoolName
   }
 }
 

@@ -5,7 +5,7 @@ This deployment creates:
 1. Networking
     * **Virtual Network** - Creates a network isolate for this demo environment
     * **Bastion + Public IP** - Provides secure access to virtual machines without any public IPs attached to any VM
-    * **NAT Gateway + Public IP** - [Required for Azure Databricks No Public IP configuration](https://docs.microsoft.com/en-us/azure/databricks/security/secure-cluster-connectivity)
+    * **Egress Load Balancer + Public IP**- [Required for Azure Databricks No Public IP configuration](https://docs.microsoft.com/en-us/azure/databricks/security/secure-cluster-connectivity)
     * **Network Security Groups (NSGs)** - Required for controlling inbound and outbound network traffic
 2. Data
     * **Azure Data Lake Gen 2 + Private Endpoints**

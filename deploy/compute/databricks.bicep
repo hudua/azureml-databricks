@@ -10,6 +10,9 @@ param vnetId string
 param publicSubnetName string
 param privateSubnetName string
 
+param loadbalancerId string
+param loadBalancerBackendPoolName string
+
 param managedResourceGroupId string
 
 resource databricks 'Microsoft.Databricks/workspaces@2018-04-01' = {
@@ -32,6 +35,12 @@ resource databricks 'Microsoft.Databricks/workspaces@2018-04-01' = {
       }
       enableNoPublicIp: {
         value: true
+      }
+      loadBalancerId: {
+        value: loadbalancerId
+      }
+      loadBalancerBackendPoolName: {
+        value: loadBalancerBackendPoolName
       }
     }
   }
