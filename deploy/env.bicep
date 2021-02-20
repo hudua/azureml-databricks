@@ -3,12 +3,17 @@ param windowsVMPassword string {
   secure: true
 }
 
-param databricksManagedResourceGroupName string
-
 module vnet './networking/vnet.bicep' = {
   name: 'vnet'
   params: {
     name: 'vnet'
+  }
+}
+
+module egressLb './networking/egressLb.bicep' = {
+  name: 'egressLb'
+  params: {
+    name: 'egressLb'
   }
 }
 
@@ -35,9 +40,11 @@ module databricks './compute/databricks.bicep' = {
     name: 'databricks'
     vnetId: vnet.outputs.vnetId
     pricingTier: 'premium'
-    managedResourceGroupId: '${subscription().id}/resourceGroups/${databricksManagedResourceGroupName}'
+    managedResourceGroupId: '${subscription().id}/resourceGroups/databricks-rg-${resourceGroup().name}-${uniqueString(resourceGroup().id)}'
     publicSubnetName: vnet.outputs.databricksPublicSubnetName
     privateSubnetName: vnet.outputs.databricksPrivateSubnetName
+    loadbalancerId: egressLb.outputs.lbId
+    loadBalancerBackendPoolName: egressLb.outputs.lbBackendPoolName
   }
 }
 
