@@ -22,11 +22,20 @@ module nsgDatabricks 'nsg/nsg-databricks.bicep' = {
   }
 }
 
-module privatezone_datalake 'privatezone.bicep' = {
-  name: 'datalake_private_zone'
+module privatezone_datalake_blob 'privatezone.bicep' = {
+  name: 'datalake_blob_private_zone'
   scope: resourceGroup()
   params: {
     zone: 'privatelink.blob.core.windows.net'
+    vnetId: vnet.id
+  }
+}
+
+module privatezone_datalake_dfs 'privatezone.bicep' = {
+  name: 'datalake_dfs_private_zone'
+  scope: resourceGroup()
+  params: {
+    zone: 'privatelink.dfs.core.windows.net'
     vnetId: vnet.id
   }
 }
@@ -112,4 +121,5 @@ output bastionSubnetId string = '${vnet.id}/subnets/AzureBastionSubnet'
 output databricksPublicSubnetName string = 'databricks-public'
 output databricksPrivateSubnetName string = 'databricks-private'
 
-output dataLakePrivateZoneId string = privatezone_datalake.outputs.privateZoneId
+output dataLakeBlobPrivateZoneId string = privatezone_datalake_blob.outputs.privateZoneId
+output dataLakeDfsPrivateZoneId string = privatezone_datalake_dfs.outputs.privateZoneId

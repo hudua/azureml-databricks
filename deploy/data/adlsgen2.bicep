@@ -1,5 +1,6 @@
 param privateEndpointSubnetId string
-param privateZoneId string
+param blobPrivateZoneId string
+param dfsPrivateZoneId string
 param namePrefix string = 'datalake'
 
 resource datalake 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -25,21 +26,20 @@ resource datalake 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   }
 }
 
-resource datalake_pe 'Microsoft.Network/privateEndpoints@2020-06-01' = {
+resource datalake_blob_pe 'Microsoft.Network/privateEndpoints@2020-06-01' = {
   location: resourceGroup().location
-  name: '${datalake.name}-endpoint'
+  name: '${datalake.name}-blob-endpoint'
   properties: {
     subnet: {
       id: privateEndpointSubnetId
     }
     privateLinkServiceConnections: [
       {
-        name: '${datalake.name}-endpoint'
+        name: '${datalake.name}-blob-endpoint'
         properties: {
           privateLinkServiceId: datalake.id
           groupIds: [
             'blob'
-            'dbf'
           ]
         }
       }
@@ -47,14 +47,50 @@ resource datalake_pe 'Microsoft.Network/privateEndpoints@2020-06-01' = {
   }
 }
 
-resource datalake_pe_dns_reg 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2020-06-01' = {
-  name: '${datalake_pe.name}/default'
+resource datalake_dfs_pe 'Microsoft.Network/privateEndpoints@2020-06-01' = {
+  location: resourceGroup().location
+  name: '${datalake.name}-dfs-endpoint'
+  properties: {
+    subnet: {
+      id: privateEndpointSubnetId
+    }
+    privateLinkServiceConnections: [
+      {
+        name: '${datalake.name}-dfs-endpoint'
+        properties: {
+          privateLinkServiceId: datalake.id
+          groupIds: [
+            'dfs'
+          ]
+        }
+      }
+    ]
+  }
+}
+
+resource datalake_blob_pe_dns_reg 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2020-06-01' = {
+  name: '${datalake_blob_pe.name}/default'
   properties: {
     privateDnsZoneConfigs: [
       {
-        name: 'privatelink_blob_dbf_core_windows_net'
+        name: 'privatelink_blob_core_windows_net'
         properties: {
-          privateDnsZoneId: privateZoneId
+          privateDnsZoneId: blobPrivateZoneId
+        }
+      }
+    ]
+  }
+}
+
+
+resource datalake_dfs_pe_dns_reg 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2020-06-01' = {
+  name: '${datalake_dfs_pe.name}/default'
+  properties: {
+    privateDnsZoneConfigs: [
+      {
+        name: 'privatelink_dfs_core_windows_net'
+        properties: {
+          privateDnsZoneId: dfsPrivateZoneId
         }
       }
     ]

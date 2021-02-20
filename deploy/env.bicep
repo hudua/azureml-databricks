@@ -30,7 +30,8 @@ module dataLake './data/adlsgen2.bicep' = {
   params: {
     namePrefix: 'datalake'
     privateEndpointSubnetId: vnet.outputs.dataLakeSubnetId
-    privateZoneId: vnet.outputs.dataLakePrivateZoneId
+    blobPrivateZoneId: vnet.outputs.dataLakeBlobPrivateZoneId
+    dfsPrivateZoneId: vnet.outputs.dataLakeDfsPrivateZoneId
   }
 }
 
