@@ -39,6 +39,7 @@ resource datalake_pe 'Microsoft.Network/privateEndpoints@2020-06-01' = {
           privateLinkServiceId: datalake.id
           groupIds: [
             'blob'
+            'dbf'
           ]
         }
       }
@@ -51,7 +52,7 @@ resource datalake_pe_dns_reg 'Microsoft.Network/privateEndpoints/privateDnsZoneG
   properties: {
     privateDnsZoneConfigs: [
       {
-        name: 'privatelink_blob_core_windows_net'
+        name: 'privatelink_blob_dbf_core_windows_net'
         properties: {
           privateDnsZoneId: privateZoneId
         }
