@@ -7,20 +7,24 @@ First, go to Azure ML Designer and construct a sample pipeline as such. See this
 You can upload the sample dataset in datastore, per the Designer guide above.
 
 * Import data: you would to point it to a CSV (for example) in a datastore that you have connected with
+
 ![alt text](/guides/images/pipeline2.PNG)
 
 
 * Process text: use the text column to clean
+
 ![alt text](/guides/images/pipeline3.PNG)
 
 
 * Execute Python Script: you can import your custom Python script
 
 * Feature hashing: Here you process text to vectors
+
 ![alt text](/guides/images/pipeline4.PNG)
 
 
 * Export data: you would save the output back to the datastore
+
 ![alt text](/guides/images/pipeline5.PNG)
 
 
