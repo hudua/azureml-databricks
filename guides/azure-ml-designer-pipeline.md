@@ -35,3 +35,5 @@ Once the run is complete, you can see the output in the storage account (referen
 
 Then publish it and you should be able to consume it in the Notebooks (or anywhere else) through these commands.
 
+![alt text](/guides/images/pipeline7.PNG)
+
