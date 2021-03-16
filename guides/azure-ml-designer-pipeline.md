@@ -4,7 +4,7 @@ First, go to Azure ML Designer and construct a sample pipeline as such. See this
 
 ![alt text](/guides/images/pipeline1.PNG)
 
-You can upload the sample dataset in datastore, per the Designer guide above.
+You can upload the sample dataset in datastore, per the Designer guide above: https://github.com/hudua/azureml-databricks/blob/main/data/sample_text.csv
 
 * Dataset: you would to point it to a dataset (for example) in a datastore that you have connected with, using latest version
 
