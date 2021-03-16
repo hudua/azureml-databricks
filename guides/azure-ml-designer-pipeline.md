@@ -6,9 +6,9 @@ First, go to Azure ML Designer and construct a sample pipeline as such. See this
 
 You can upload the sample dataset in datastore, per the Designer guide above.
 
-* Import data: you would to point it to a CSV (for example) in a datastore that you have connected with
+* Dataset: you would to point it to a dataset (for example) in a datastore that you have connected with, using latest version
 
-![alt text](/guides/images/pipeline2.PNG)
+![alt text](/guides/images/pipeline12.PNG)
 
 
 * Process text: use the text column to clean
