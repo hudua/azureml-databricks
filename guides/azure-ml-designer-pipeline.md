@@ -37,3 +37,33 @@ Then publish it and you should be able to consume it in the Notebooks (or anywhe
 
 ![alt text](/guides/images/pipeline7.PNG)
 
+
+Here is the code to run the pipeline. You can test it by adding a few rows to the sample dataset in Azure ML Notebook
+
+```python
+from azureml.core import Workspace, Dataset, Datastore
+
+subscription_id = ''
+resource_group = ''
+workspace_name = ''
+
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+datastore = Datastore.get(workspace, "datastorehudua")
+dataset = Dataset.Tabular.from_delimited_files(path=[(datastore, 'sample_text.csv')])
+
+dataset = dataset.register(workspace = workspace,
+                                 name = 'sample_text',
+                                 create_new_version = True)
+                               
+from azureml.pipeline.core import Pipeline, PublishedPipeline
+pipelines = PublishedPipeline.list(workspace)
+print(pipelines) # to get the pipeline ID
+pipeline = PublishedPipeline.get(workspace, id="ca747adb-2c93-4f91-bc0b-ea9db7d53256")
+
+pipeline.submit(experiment_name = 'ppelinerun', workspace = workspace)
+
+```
+
+
+
