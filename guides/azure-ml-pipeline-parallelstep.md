@@ -70,7 +70,7 @@ parallel_run_config = ParallelRunConfig(
     run_invocation_timeout=600
 )
 
-input_data_consumption = DatasetConsumptionConfig("minist_param_config", dataset)
+input_data_consumption = DatasetConsumptionConfig("dataset_config", dataset)
 output_folder = PipelineData(name='output_predictions', datastore=datastore)
 
 parallelstep = ParallelRunStep(
