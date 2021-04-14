@@ -87,5 +87,5 @@ pipeline_run = Experiment(ws, 'batchjobexample').submit(pipeline)
 
 Once this experiment is submitted, you can find it in the Experiment tab within Azure ML. You should see a pipeline graph similar to this, and you can view the output of appended records via batch parallel processing.
 
-![image](https://user-images.githubusercontent.com/40040433/114758029-845ff300-9d2a-11eb-86c5-fa40bf84b323.png)
+![image](images/pipeline.PNG)
 
