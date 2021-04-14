@@ -1,6 +1,4 @@
-This guide provides an example of using ParallelRunStep in Azure ML to parallel and run mini batch jobs at scale.
-
-The sample script can be found here (relatieve to this README file): scripts/batch_script.py
+This guide provides an example of using ParallelRunStep in Azure ML to run batch jobs at scale in parallel. The sample script can be found here (relative to this README file): scripts/batch_script.py
 
 The Azure ML notebook you can use is as follows. Here are a few steps to do before running the below:
 
@@ -17,13 +15,11 @@ subscription_id = ''
 resource_group = ''
 workspace_name = ''
 
-workspace = Workspace(subscription_id, resource_group, workspace_name)
-
+ws = Workspace(subscription_id, resource_group, workspace_name)
+datastore = Datastore.get(ws, "<datastore-name>")
 dataset = Dataset.get_by_name(ws, name='<dataset-name>')
-
 compute = ws.compute_targets['cifa-pipeline']
 
-datastore = Datastore.get(ws, "<datastore-name>")
 
 ```
 
