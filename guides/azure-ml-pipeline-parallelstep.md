@@ -18,7 +18,7 @@ workspace_name = ''
 ws = Workspace(subscription_id, resource_group, workspace_name)
 datastore = Datastore.get(ws, "<datastore-name>")
 dataset = Dataset.get_by_name(ws, name='<dataset-name>')
-compute = ws.compute_targets['cifa-pipeline']
+compute = ws.compute_targets['<compute-cluster-name>']
 
 
 ```
