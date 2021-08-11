@@ -36,7 +36,7 @@ from azureml.pipeline.core import PipelineParameter
 
 param_dataset_train = PipelineParameter(name="dataset_train", default_value="dataset_train")
 param_dataset_val = PipelineParameter(name="dataset_val", default_value="dataset_val")
-param_label = PipelineParameter(name="label", default_value="Rev_bin")
+param_label = PipelineParameter(name="label", default_value="labelcol")
 param_mltype = PipelineParameter(name="mltype", default_value="classification")
 param_allowed_model = PipelineParameter(name="allowed_model", default_value="XGBoostClassifier")
 param_primary_metric = PipelineParameter(name="primary_metric", default_value="average_precision_score_weighted")
