@@ -21,3 +21,5 @@ fowl_data
 ```
 
 Alternatively, one can uncomment the other download_data() method to download data as part of the Python script (instead of accessing a dataset to storage account on Azure).
+
+The script will train an image classification PyTorch model on fowl images of chickens and turkeys. Then save and register the model 
