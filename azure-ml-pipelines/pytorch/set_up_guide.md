@@ -4,9 +4,9 @@ The data
 
 Here are a few steps to do this: 
 
-1. Create a compute cluster in Azure ML, by going to Compute --> Compute clusters --> Create new. Be sure to select a GPU SKU
+1. Create a compute cluster in Azure ML, by going to Compute --> Compute clusters --> Create new. Be sure to select a GPU SKU.
 2. Create a datastore (to storage account) connection in Azure ML, by going to Datastores --> New datstore.
-3. Create a dataset in Azure ML, by going to Datasets --> Create dataset from datastore. Be sure to pick File as Dataset type (and select all the files)
+3. Create a dataset in Azure ML, by going to Datasets --> Create dataset from datastore. Be sure to pick File as Dataset type (and select all the files).
 
 By assumption, the dataset folder is expected to be organized as such, and data can be downloaded here: https://azureopendatastorage.blob.core.windows.net/testpublic/temp/fowl_data.zip
 
