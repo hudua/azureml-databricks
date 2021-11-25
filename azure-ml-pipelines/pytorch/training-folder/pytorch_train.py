@@ -164,6 +164,26 @@ def download_data():
     dataset.download(target_path='fowl_data', overwrite=True)
     return 'fowl_data'
 
+# def download_data():
+#     """Download and extract the training data."""
+#     import urllib
+#     from zipfile import ZipFile
+#     # download data
+#     data_file = './fowl_data.zip'
+#     download_url = 'https://azureopendatastorage.blob.core.windows.net/testpublic/temp/fowl_data.zip'
+#     urllib.request.urlretrieve(download_url, filename=data_file)
+
+#     # extract files
+#     with ZipFile(data_file, 'r') as zip:
+#         print('extracting files...')
+#         zip.extractall()
+#         print('finished extracting')
+#         data_dir = zip.namelist()[0]
+
+#     # delete zip file
+#     os.remove(data_file)
+#     return data_dir
+
 def main():
     import torch
     print("Torch version:", torch.__version__)
