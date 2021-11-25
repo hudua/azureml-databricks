@@ -1,0 +1,10 @@
+channels:
+- conda-forge
+dependencies:
+- python=3.8
+- pip:
+  - azureml-defaults
+  - torch==1.10.0
+  - torchvision==0.11.1
+  - future
+  - pillow
